@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image:url("https://tse3.mm.bing.net/th?id=OIP.HXgn0-nG4Ch9CZwXyqlrKQHaDt&pid=Api&P=0&h=220");
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px; /* Adjusted margin from bottom to top */
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            margin-top: 20px; /* Added margin-top */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #dc3545; /* Red color */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c82333; /* Darker red color on hover */
+        }
+    </style>
+</head>
+<body>
+<script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        document.getElementById("id").value = getParameterByName("id");
+
+       function deleteUserId(){
+    	   alert("User id "+ getParameterByName("id")+"will be deleted")
+       }
+        
+    </script>
+    <form action="DeleteServlet" method="get">
+        <h1 class="text-center">Delete Details</h1>
+        <label for="id">Delete ID</label>
+        <input type="text" id="id" name="id">
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>
